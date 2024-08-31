@@ -1,11 +1,17 @@
+import 'package:asignment_12/english_word.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import  'Font_awsome.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'Font_Awsome.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+
 
 void main() {
   runApp(MaterialApp(
+    builder: FToastBuilder(),
     home: MyApp(),
   ));
 }
@@ -18,24 +24,69 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  List number = ['Awsome Icons','Generate Word', 3, 4, 5, 6, 7, 8, 9, 10];
 
-  List icons =[FontAwesomeIcons.google,Icons.ac_unit,Icons.share,Icons.message,Icons.zoom_in,
+  List icons =[FontAwesomeIcons.icons,Icons.wordpress_rounded,Icons.share,Icons.message,Icons.zoom_in,
     Icons.details,Icons.show_chart_sharp,Icons.shape_line,Icons.add_a_photo,Icons.add];
 
   List color = [Colors.blue,Colors.red,Colors.green,Colors.purpleAccent,Colors.pinkAccent,
     Colors.blueGrey,Colors.blueGrey,Colors.purple,Colors.yellow,Colors.orangeAccent];
 
 
+List pages =[Font_page(),Word()];
+
+  Showtoast(){
+
+    Fluttertoast.showToast(
+      msg: 'Welcome To New Library ',
+      toastLength: Toast.LENGTH_SHORT,
+      fontSize: 20,
+      backgroundColor: Colors.green,
+      gravity: ToastGravity.BOTTOM,
+      textColor: Colors.white,
+    );
+  }
+
 
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+      BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Libraries',style: TextStyle(fontSize: 30,color: Colors.white),),
+        leading: IconButton(onPressed: (){
+
+          Alert(context: context,
+            type: AlertType.warning,
+            title: ' Exit',
+            desc: 'Do you want to Exit',
+            buttons: [
+              DialogButton(
+                color: Colors.red,
+                  splashColor: Colors.green,
+                  child: Text('Yes',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+                  onPressed: (){
+                SystemNavigator.pop();
+              }
+              ),
+            DialogButton(
+              color: Colors.blue,
+                splashColor: Colors.yellow,
+                child: Text('No',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+                onPressed: (){
+                Navigator.pop(context);
+                },)
+            ],
+
+          ).show();
+
+
+        },
+            icon: Icon(Icons.exit_to_app)),
         centerTitle: true,
         backgroundColor: Colors.green,
       ),
+
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -52,8 +103,9 @@ class _MyAppState extends State<MyApp> {
                     padding: const EdgeInsets.all(8.0),
                     child:
                     GestureDetector(onTap: (){
+                      Showtoast();
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return Font_page();
+                        return pages[index];
                       }));
                     },
                       child: Container(height: 100, width: 100,
@@ -64,9 +116,9 @@ class _MyAppState extends State<MyApp> {
                           Center(
                             child: Column(mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(icons[index],size: 70,color: Colors.white,),
+                                Icon(icons[index],size: 60,color: Colors.white,),
                                 SizedBox(height: 15,),
-                               Text('${number[index]}',style: TextStyle(fontSize: 30),),
+                               Text('${number[index]}',style: TextStyle(fontSize: 23,color: Colors.white),),
 
                                 // ElevatedButton(onPressed: (){
                                 //   showDialog(context: context, builder: (context) {
@@ -81,7 +133,8 @@ class _MyAppState extends State<MyApp> {
                                 //     );
                                 //   },);
                                 // },
-                                //     child: Text('click'))
+                                //     child: Text('click')),
+
                           ],
                         )),
                       ),

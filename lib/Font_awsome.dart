@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -7,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Font_page extends StatefulWidget {
   const Font_page({super.key});
+
 
   @override
   State<Font_page> createState() => _Font_pageState();
@@ -21,14 +21,17 @@ class _Font_pageState extends State<Font_page> {
       child: FaIcon(fonts,size: 50,
         color: Color.fromRGBO(Random().nextInt(255), Random().nextInt(255), Random().nextInt(255),100),
       ),
-    );
+    );}
 
-  }
+
+
+
 
   @override
 
   Widget build(BuildContext context) {
     return MaterialApp(
+
       home: Scaffold(
         appBar:AppBar(backgroundColor: Colors.blue,
          title: Text('Some of Awsome Icons',style: TextStyle(fontSize: 30,color: Colors.white),),
@@ -38,6 +41,7 @@ class _Font_pageState extends State<Font_page> {
           child: Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('List Of Social Media Icons',style: TextStyle(fontSize: 30,color: Colors.red),),
+
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                  font(FontAwesomeIcons.google),
@@ -86,6 +90,7 @@ class _Font_pageState extends State<Font_page> {
                 font(FontAwesomeIcons.computer),
               ],
               ),
+
 
             ],
           )
