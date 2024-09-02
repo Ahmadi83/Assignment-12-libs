@@ -1,4 +1,5 @@
 import 'package:asignment_12/english_word.dart';
+import 'package:asignment_12/spin_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import  'Font_awsome.dart';
@@ -7,7 +8,6 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-
 
 void main() {
   runApp(MaterialApp(
@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
     Colors.blueGrey,Colors.blueGrey,Colors.purple,Colors.yellow,Colors.orangeAccent];
 
 
-List pages =[Font_page(),Word()];
+List pages =[Font_page(),Word(),spin()];
 
   Showtoast(){
 
@@ -79,7 +79,6 @@ List pages =[Font_page(),Word()];
             ],
 
           ).show();
-
 
         },
             icon: Icon(Icons.exit_to_app)),
