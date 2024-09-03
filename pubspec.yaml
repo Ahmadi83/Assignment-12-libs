@@ -38,6 +38,11 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_spinkit: ^5.2.1
 #  photo_view: ^0.14.0
+#  shimmer: ^3.0.0
+#  chewie: ^1.8.3
+  pluto_grid: ^8.0.0
+  dropdown_button2: ^2.3.9
+
 
 
 

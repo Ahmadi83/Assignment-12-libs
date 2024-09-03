@@ -1,4 +1,6 @@
+import 'package:asignment_12/dropdown_button.dart';
 import 'package:asignment_12/english_word.dart';
+import 'package:asignment_12/pluto_grid.dart';
 import 'package:asignment_12/spin_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,8 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
+
 
 void main() {
   runApp(MaterialApp(
@@ -24,16 +28,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List number = ['Awsome Icons','Generate Word', 3, 4, 5, 6, 7, 8, 9, 10];
+  List number = ['Awsome Icons','Generate Word','Loading', 'Grid_Table', 5, 6, 7, 8, 9, 10];
 
-  List icons =[FontAwesomeIcons.icons,Icons.wordpress_rounded,Icons.share,Icons.message,Icons.zoom_in,
+  List icons =[FontAwesomeIcons.icons,Icons.wordpress_rounded,FontAwesomeIcons.spinner,
+    FontAwesomeIcons.table,Icons.smart_button,
     Icons.details,Icons.show_chart_sharp,Icons.shape_line,Icons.add_a_photo,Icons.add];
 
   List color = [Colors.blue,Colors.red,Colors.green,Colors.purpleAccent,Colors.pinkAccent,
     Colors.blueGrey,Colors.blueGrey,Colors.purple,Colors.yellow,Colors.orangeAccent];
 
 
-List pages =[Font_page(),Word(),spin()];
+List pages =[
+  Font_page(),Word(),spin(),Grid(),
+  button(),
+
+  ];
 
   Showtoast(){
 
@@ -140,7 +149,7 @@ List pages =[Font_page(),Word(),spin()];
                     )
             ));
           },
-          itemCount: 10,
+          itemCount: 6,
           scrollDirection: Axis.vertical,
         ),
       ),
